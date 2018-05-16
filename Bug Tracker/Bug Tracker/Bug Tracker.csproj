@@ -35,6 +35,9 @@
     <StartupObject>Bug_Tracker.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FastColoredTextBox">
+      <HintPath>C:\Users\Pradip\Downloads\Compressed\FastColoredTextBox-master\Binary\FastColoredTextBox.dll</HintPath>
+    </Reference>
     <Reference Include="Oracle.ManagedDataAccess">
       <HintPath>C:\Users\Pradip\Downloads\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>

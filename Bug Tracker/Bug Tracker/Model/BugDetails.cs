@@ -14,5 +14,6 @@ namespace Bug_Tracker.Forms.Model
         public byte[] image { get; set; }
         public string image_name { get; set; }
         public string source_link { get; set; }
+        public string code_block { get; set; }
     }
 }

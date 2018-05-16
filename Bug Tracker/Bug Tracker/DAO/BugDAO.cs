@@ -32,21 +32,46 @@ namespace Bug_Tracker.Forms.DAO
         public int Insert(Bug t)
             //
         {
-            conn.Open();
-            OracleCommand command = conn.CreateCommand();
-            command.CommandText = "insert into ASE.bug(bug_id, project_name, class_name, method_name, line_no, code_author, added_date)" +
-                "values(null, :project, :class, :method, :line, null)";
-            command.Parameters.Add(":project", t.program);
-            command.Parameters.Add(":class", t.class_name);
-            command.Parameters.Add(":method", t.method_name);
-            command.Parameters.Add(":line", t.line_number);
+            int id=0;
+           
+                conn.Open();
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "insert into ASE.bug(bug_id, program_id, class_name, method_name, line_no, added_date)" +
+                    "values(null, :project, :class, :method, :line, current_timestamp)";
+                command.Parameters.Add(":project", t.program);
+                command.Parameters.Add(":class", t.class_name);
+                command.Parameters.Add(":method", t.method_name);
+                command.Parameters.Add(":line", t.line_number);
+
+                int done = command.ExecuteNonQuery();
+                if (done != 0)
+                {
+                    OracleCommand command1 = conn.CreateCommand();
+                    command1.CommandText = "select ASE.seq_bug.currval from dual";
+                    OracleDataReader dr = command1.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            id = dr.GetInt32(0);
+
+                        }
+                    }
+                }
             
-            //OracleDataReader dr = new OracleDataReader(command);
-            return 1;
+            
+            return id;
 
         }
 
-        public int Update(Bug t)
+        public OracleDataAdapter GetBugs()
+        {
+            OracleConnection conn = ConnectToDB.Connect();
+            conn.Open();
+            OracleDataAdapter data = new OracleDataAdapter("select b.bug_id, p.program_name, b.class_name, b.method_name from ASE.bug b, ASE.program p where p.program_id=b.bug_id", conn);
+            return data;
+        }
+            public int Update(Bug t)
         {
             throw new NotImplementedException();
         }
