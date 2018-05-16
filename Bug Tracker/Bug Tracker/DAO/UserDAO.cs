@@ -48,7 +48,17 @@ namespace Bug_Tracker.Forms.DAO
 
         public int Update(UserTable t)
         {
+
+            
             throw new NotImplementedException();
+        }
+        public OracleDataAdapter GetUsers() 
+        {
+            OracleConnection conn = ConnectToDB.Connect();
+            conn.Open();
+            OracleDataAdapter data = new OracleDataAdapter("select u.user_id, u.fname, t.type_name from ASE.user_table u, ASE.user_type t where t.type_id=u.type_id", conn);
+           
+            return data;
         }
     }
 }

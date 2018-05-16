@@ -11,6 +11,7 @@ using Oracle.ManagedDataAccess.Types;
 namespace Bug_Tracker.Forms.DAO
 {
     class BugDAO : GenericDAO<Bug>
+
     {
         OracleConnection conn = ConnectToDB.Connect();
         public bool Delete(int id)
@@ -34,12 +35,12 @@ namespace Bug_Tracker.Forms.DAO
             conn.Open();
             OracleCommand command = conn.CreateCommand();
             command.CommandText = "insert into ASE.bug(bug_id, project_name, class_name, method_name, line_no, code_author, added_date)" +
-                "values(null, :project, :class, :method, :line, :author, null)";
-            command.Parameters.Add(":project", t.project_name);
+                "values(null, :project, :class, :method, :line, null)";
+            command.Parameters.Add(":project", t.program);
             command.Parameters.Add(":class", t.class_name);
             command.Parameters.Add(":method", t.method_name);
             command.Parameters.Add(":line", t.line_number);
-            command.Parameters.Add(":author", t.code_author);
+            
             //OracleDataReader dr = new OracleDataReader(command);
             return 1;
 

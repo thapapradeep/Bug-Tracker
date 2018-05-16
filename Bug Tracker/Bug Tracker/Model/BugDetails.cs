@@ -11,7 +11,7 @@ namespace Bug_Tracker.Forms.Model
         public int bug_id { get; set; }
         public string symptom { get; set; }
         public string cause { get; set; }
-        public string image_path { get; set; }
+        public byte[] image { get; set; }
         public string image_name { get; set; }
         public string source_link { get; set; }
     }

@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\ProgramDAO.cs" />
     <Compile Include="Database\ConnectToDB.cs" />
     <Compile Include="DAOImpl\GenericDAOImpl.cs" />
     <Compile Include="DAO\BugDAO.cs" />
@@ -64,6 +65,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Model\Programs.cs" />
+    <Compile Include="Model\ProgramAuthors.cs" />
     <Compile Include="Views\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
