@@ -29,6 +29,7 @@ namespace Bug_Tracker.Forms.DAO
         }
 
         public int Insert(Bug t)
+            //
         {
             conn.Open();
             OracleCommand command = conn.CreateCommand();
@@ -39,7 +40,8 @@ namespace Bug_Tracker.Forms.DAO
             command.Parameters.Add(":method", t.method_name);
             command.Parameters.Add(":line", t.line_number);
             command.Parameters.Add(":author", t.code_author);
-            OracleDataReader dr = new OracleDataReader(command);
+            //OracleDataReader dr = new OracleDataReader(command);
+            return 1;
 
         }
 
