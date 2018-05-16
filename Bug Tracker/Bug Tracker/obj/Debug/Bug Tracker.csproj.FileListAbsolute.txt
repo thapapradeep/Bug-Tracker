@@ -1,0 +1,13 @@
+D:\Bug Tracker\Bug Tracker\Bug Tracker\bin\Debug\Bug Tracker.exe.config
+D:\Bug Tracker\Bug Tracker\Bug Tracker\bin\Debug\Bug Tracker.exe
+D:\Bug Tracker\Bug Tracker\Bug Tracker\bin\Debug\Bug Tracker.pdb
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug Tracker.csprojResolveAssemblyReference.cache
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug Tracker.csproj.GenerateResource.Cache
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug Tracker.csproj.CoreCompileInputs.cache
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug Tracker.exe
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug Tracker.pdb
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Login.resources
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Forms.Properties.Resources.resources
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Forms.Signup.resources
+D:\Bug Tracker\Bug Tracker\Bug Tracker\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Forms.Views.Dashboard.resources
