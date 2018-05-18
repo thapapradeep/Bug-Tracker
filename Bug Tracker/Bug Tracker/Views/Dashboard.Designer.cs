@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txt_desc1 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btn_bug_assign = new System.Windows.Forms.Button();
+            this.error_table = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_load_program = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -74,20 +79,65 @@
             this.program_grid = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.error_table = new System.Windows.Forms.DataGridView();
-            this.btn_bug_assign = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txt_desc1 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.txt_date1 = new System.Windows.Forms.TextBox();
+            this.cmb_status = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.txt_description1 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txt_source1 = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.pic_desc = new System.Windows.Forms.PictureBox();
+            this.txt_cause1 = new System.Windows.Forms.TextBox();
+            this.txt_symptom1 = new System.Windows.Forms.TextBox();
+            this.txt_class_name = new System.Windows.Forms.TextBox();
+            this.txt_method_name = new System.Windows.Forms.TextBox();
+            this.txt_program_name = new System.Windows.Forms.TextBox();
+            this.btn_view = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbl_data_error = new System.Windows.Forms.DataGridView();
+            this.history_page = new System.Windows.Forms.TabPage();
+            this.button_add = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.fast1 = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.tbl_bug_view = new System.Windows.Forms.DataGridView();
+            this.tbl_data_history = new System.Windows.Forms.DataGridView();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cmb_post = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.Txt_pass2 = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_pass1 = new System.Windows.Forms.MaskedTextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txt_lname = new System.Windows.Forms.TextBox();
+            this.Txt_Con = new System.Windows.Forms.TextBox();
+            this.Txt_add = new System.Windows.Forms.TextBox();
+            this.Txt_user = new System.Windows.Forms.TextBox();
+            this.Txt_fname = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error_table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.program_table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.user_table)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FastColour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.program_grid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.error_table)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_source1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_desc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_data_error)).BeginInit();
+            this.history_page.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fast1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_bug_view)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_data_history)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -95,6 +145,8 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.history_page);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -130,6 +182,52 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Admin Panel";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoEllipsis = true;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(455, 244);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(199, 13);
+            this.label18.TabIndex = 20;
+            this.label18.Text = "Enter description of bug before assigning";
+            // 
+            // txt_desc1
+            // 
+            this.txt_desc1.Location = new System.Drawing.Point(673, 241);
+            this.txt_desc1.Name = "txt_desc1";
+            this.txt_desc1.Size = new System.Drawing.Size(281, 20);
+            this.txt_desc1.TabIndex = 19;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(455, 69);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(77, 13);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "List of all errors";
+            // 
+            // btn_bug_assign
+            // 
+            this.btn_bug_assign.Location = new System.Drawing.Point(571, 376);
+            this.btn_bug_assign.Name = "btn_bug_assign";
+            this.btn_bug_assign.Size = new System.Drawing.Size(100, 23);
+            this.btn_bug_assign.TabIndex = 17;
+            this.btn_bug_assign.Text = "Assign to Bug";
+            this.btn_bug_assign.UseVisualStyleBackColor = true;
+            this.btn_bug_assign.Click += new System.EventHandler(this.btn_bug_assign_Click);
+            // 
+            // error_table
+            // 
+            this.error_table.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.error_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.error_table.Location = new System.Drawing.Point(458, 85);
+            this.error_table.Name = "error_table";
+            this.error_table.Size = new System.Drawing.Size(500, 150);
+            this.error_table.TabIndex = 16;
+            this.error_table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.error_table_CellClick);
             // 
             // button1
             // 
@@ -181,6 +279,7 @@
             // 
             // program_table
             // 
+            this.program_table.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.program_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.program_table.Location = new System.Drawing.Point(0, 177);
             this.program_table.Name = "program_table";
@@ -200,6 +299,7 @@
             // 
             // user_table
             // 
+            this.user_table.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.user_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.user_table.Location = new System.Drawing.Point(306, 405);
             this.user_table.Name = "user_table";
@@ -525,6 +625,7 @@
             // 
             // program_grid
             // 
+            this.program_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.program_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.program_grid.Location = new System.Drawing.Point(3, 52);
             this.program_grid.Name = "program_grid";
@@ -544,6 +645,23 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.txt_date1);
+            this.tabPage3.Controls.Add(this.cmb_status);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.linkLabel1);
+            this.tabPage3.Controls.Add(this.txt_description1);
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.txt_source1);
+            this.tabPage3.Controls.Add(this.pic_desc);
+            this.tabPage3.Controls.Add(this.txt_cause1);
+            this.tabPage3.Controls.Add(this.txt_symptom1);
+            this.tabPage3.Controls.Add(this.txt_class_name);
+            this.tabPage3.Controls.Add(this.txt_method_name);
+            this.tabPage3.Controls.Add(this.txt_program_name);
+            this.tabPage3.Controls.Add(this.btn_view);
+            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.label27);
+            this.tabPage3.Controls.Add(this.tbl_data_error);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(961, 571);
@@ -551,50 +669,440 @@
             this.tabPage3.Text = "View Error Details";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // error_table
+            // txt_date1
             // 
-            this.error_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.error_table.Location = new System.Drawing.Point(458, 85);
-            this.error_table.Name = "error_table";
-            this.error_table.Size = new System.Drawing.Size(500, 150);
-            this.error_table.TabIndex = 16;
-            this.error_table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.error_table_CellClick);
+            this.txt_date1.Enabled = false;
+            this.txt_date1.Location = new System.Drawing.Point(248, 478);
+            this.txt_date1.Name = "txt_date1";
+            this.txt_date1.Size = new System.Drawing.Size(161, 20);
+            this.txt_date1.TabIndex = 57;
             // 
-            // btn_bug_assign
+            // cmb_status
             // 
-            this.btn_bug_assign.Location = new System.Drawing.Point(571, 376);
-            this.btn_bug_assign.Name = "btn_bug_assign";
-            this.btn_bug_assign.Size = new System.Drawing.Size(100, 23);
-            this.btn_bug_assign.TabIndex = 17;
-            this.btn_bug_assign.Text = "Assign to Bug";
-            this.btn_bug_assign.UseVisualStyleBackColor = true;
-            this.btn_bug_assign.Click += new System.EventHandler(this.btn_bug_assign_Click);
+            this.cmb_status.FormattingEnabled = true;
+            this.cmb_status.Items.AddRange(new object[] {
+            "fixed",
+            "unfixed"});
+            this.cmb_status.Location = new System.Drawing.Point(624, 516);
+            this.cmb_status.Name = "cmb_status";
+            this.cmb_status.Size = new System.Drawing.Size(121, 21);
+            this.cmb_status.TabIndex = 56;
             // 
-            // label17
+            // label19
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(455, 69);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(77, 13);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "List of all errors";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(524, 522);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(82, 13);
+            this.label19.TabIndex = 55;
+            this.label19.Text = "Is the bug fixed:";
             // 
-            // txt_desc1
+            // linkLabel1
             // 
-            this.txt_desc1.Location = new System.Drawing.Point(673, 241);
-            this.txt_desc1.Name = "txt_desc1";
-            this.txt_desc1.Size = new System.Drawing.Size(281, 20);
-            this.txt_desc1.TabIndex = 19;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(245, 553);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(64, 13);
+            this.linkLabel1.TabIndex = 54;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Source Link";
             // 
-            // label18
+            // txt_description1
             // 
-            this.label18.AutoEllipsis = true;
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(455, 244);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(199, 13);
-            this.label18.TabIndex = 20;
-            this.label18.Text = "Enter description of bug before assigning";
+            this.txt_description1.Enabled = false;
+            this.txt_description1.Location = new System.Drawing.Point(248, 452);
+            this.txt_description1.Name = "txt_description1";
+            this.txt_description1.Size = new System.Drawing.Size(161, 20);
+            this.txt_description1.TabIndex = 53;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(279, 436);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(92, 13);
+            this.label20.TabIndex = 52;
+            this.label20.Text = "Image Description";
+            // 
+            // txt_source1
+            // 
+            this.txt_source1.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.txt_source1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.txt_source1.BackBrush = null;
+            this.txt_source1.CharHeight = 14;
+            this.txt_source1.CharWidth = 8;
+            this.txt_source1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_source1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.txt_source1.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.txt_source1.IsReplaceMode = false;
+            this.txt_source1.Location = new System.Drawing.Point(501, 65);
+            this.txt_source1.Name = "txt_source1";
+            this.txt_source1.Paddings = new System.Windows.Forms.Padding(0);
+            this.txt_source1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.txt_source1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("txt_source1.ServiceColors")));
+            this.txt_source1.Size = new System.Drawing.Size(458, 409);
+            this.txt_source1.TabIndex = 51;
+            this.txt_source1.Zoom = 100;
+            // 
+            // pic_desc
+            // 
+            this.pic_desc.Location = new System.Drawing.Point(11, 337);
+            this.pic_desc.Name = "pic_desc";
+            this.pic_desc.Size = new System.Drawing.Size(203, 229);
+            this.pic_desc.TabIndex = 50;
+            this.pic_desc.TabStop = false;
+            // 
+            // txt_cause1
+            // 
+            this.txt_cause1.Enabled = false;
+            this.txt_cause1.Location = new System.Drawing.Point(11, 277);
+            this.txt_cause1.Multiline = true;
+            this.txt_cause1.Name = "txt_cause1";
+            this.txt_cause1.Size = new System.Drawing.Size(161, 45);
+            this.txt_cause1.TabIndex = 49;
+            // 
+            // txt_symptom1
+            // 
+            this.txt_symptom1.Enabled = false;
+            this.txt_symptom1.Location = new System.Drawing.Point(11, 226);
+            this.txt_symptom1.Multiline = true;
+            this.txt_symptom1.Name = "txt_symptom1";
+            this.txt_symptom1.Size = new System.Drawing.Size(161, 45);
+            this.txt_symptom1.TabIndex = 48;
+            // 
+            // txt_class_name
+            // 
+            this.txt_class_name.Enabled = false;
+            this.txt_class_name.Location = new System.Drawing.Point(11, 152);
+            this.txt_class_name.Name = "txt_class_name";
+            this.txt_class_name.Size = new System.Drawing.Size(161, 20);
+            this.txt_class_name.TabIndex = 42;
+            // 
+            // txt_method_name
+            // 
+            this.txt_method_name.Enabled = false;
+            this.txt_method_name.Location = new System.Drawing.Point(11, 189);
+            this.txt_method_name.Name = "txt_method_name";
+            this.txt_method_name.Size = new System.Drawing.Size(161, 20);
+            this.txt_method_name.TabIndex = 41;
+            // 
+            // txt_program_name
+            // 
+            this.txt_program_name.Enabled = false;
+            this.txt_program_name.Location = new System.Drawing.Point(11, 126);
+            this.txt_program_name.Name = "txt_program_name";
+            this.txt_program_name.Size = new System.Drawing.Size(161, 20);
+            this.txt_program_name.TabIndex = 40;
+            // 
+            // btn_view
+            // 
+            this.btn_view.Location = new System.Drawing.Point(373, 24);
+            this.btn_view.Name = "btn_view";
+            this.btn_view.Size = new System.Drawing.Size(75, 23);
+            this.btn_view.TabIndex = 39;
+            this.btn_view.Text = "View";
+            this.btn_view.UseVisualStyleBackColor = true;
+            this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(879, 512);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 38;
+            this.button6.Text = "Update";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(8, 37);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(62, 13);
+            this.label27.TabIndex = 34;
+            this.label27.Text = "List of Bugs";
+            // 
+            // tbl_data_error
+            // 
+            this.tbl_data_error.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbl_data_error.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tbl_data_error.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbl_data_error.Location = new System.Drawing.Point(8, 53);
+            this.tbl_data_error.Name = "tbl_data_error";
+            this.tbl_data_error.Size = new System.Drawing.Size(451, 67);
+            this.tbl_data_error.TabIndex = 33;
+            this.tbl_data_error.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tbl_data_error_CellClick);
+            this.tbl_data_error.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tbl_data_error_CellContentClick);
+            // 
+            // history_page
+            // 
+            this.history_page.Controls.Add(this.cmb_post);
+            this.history_page.Controls.Add(this.label22);
+            this.history_page.Controls.Add(this.Txt_pass2);
+            this.history_page.Controls.Add(this.Txt_pass1);
+            this.history_page.Controls.Add(this.label23);
+            this.history_page.Controls.Add(this.label24);
+            this.history_page.Controls.Add(this.txt_lname);
+            this.history_page.Controls.Add(this.Txt_Con);
+            this.history_page.Controls.Add(this.Txt_add);
+            this.history_page.Controls.Add(this.Txt_user);
+            this.history_page.Controls.Add(this.Txt_fname);
+            this.history_page.Controls.Add(this.label25);
+            this.history_page.Controls.Add(this.label26);
+            this.history_page.Controls.Add(this.label28);
+            this.history_page.Controls.Add(this.label29);
+            this.history_page.Controls.Add(this.label31);
+            this.history_page.Controls.Add(this.button_add);
+            this.history_page.Location = new System.Drawing.Point(4, 22);
+            this.history_page.Name = "history_page";
+            this.history_page.Padding = new System.Windows.Forms.Padding(3);
+            this.history_page.Size = new System.Drawing.Size(961, 571);
+            this.history_page.TabIndex = 3;
+            this.history_page.Text = "Add User";
+            this.history_page.UseVisualStyleBackColor = true;
+            // 
+            // button_add
+            // 
+            this.button_add.Location = new System.Drawing.Point(457, 542);
+            this.button_add.Name = "button_add";
+            this.button_add.Size = new System.Drawing.Size(75, 23);
+            this.button_add.TabIndex = 0;
+            this.button_add.Text = "Submit";
+            this.button_add.UseVisualStyleBackColor = true;
+            this.button_add.Click += new System.EventHandler(this.button_add_Click);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.label21);
+            this.tabPage5.Controls.Add(this.tbl_data_history);
+            this.tabPage5.Controls.Add(this.fast1);
+            this.tabPage5.Controls.Add(this.button4);
+            this.tabPage5.Controls.Add(this.tbl_bug_view);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(961, 571);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "View Error History";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // fast1
+            // 
+            this.fast1.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.fast1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.fast1.BackBrush = null;
+            this.fast1.CharHeight = 14;
+            this.fast1.CharWidth = 8;
+            this.fast1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.fast1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.fast1.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.fast1.IsReplaceMode = false;
+            this.fast1.Location = new System.Drawing.Point(498, 101);
+            this.fast1.Name = "fast1";
+            this.fast1.Paddings = new System.Windows.Forms.Padding(0);
+            this.fast1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.fast1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fast1.ServiceColors")));
+            this.fast1.Size = new System.Drawing.Size(458, 409);
+            this.fast1.TabIndex = 59;
+            this.fast1.Zoom = 100;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(370, 60);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 53;
+            this.button4.Text = "View";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_2);
+            // 
+            // tbl_bug_view
+            // 
+            this.tbl_bug_view.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbl_bug_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tbl_bug_view.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbl_bug_view.Location = new System.Drawing.Point(5, 89);
+            this.tbl_bug_view.Name = "tbl_bug_view";
+            this.tbl_bug_view.Size = new System.Drawing.Size(451, 122);
+            this.tbl_bug_view.TabIndex = 52;
+            this.tbl_bug_view.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tbl_bug_view_CellClick);
+            this.tbl_bug_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // tbl_data_history
+            // 
+            this.tbl_data_history.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbl_data_history.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tbl_data_history.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbl_data_history.Location = new System.Drawing.Point(3, 271);
+            this.tbl_data_history.Name = "tbl_data_history";
+            this.tbl_data_history.Size = new System.Drawing.Size(489, 127);
+            this.tbl_data_history.TabIndex = 60;
+            this.tbl_data_history.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tbl_data_history_CellClick);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 255);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(39, 13);
+            this.label21.TabIndex = 61;
+            this.label21.Text = "History";
+            // 
+            // cmb_post
+            // 
+            this.cmb_post.FormattingEnabled = true;
+            this.cmb_post.Items.AddRange(new object[] {
+            "Admin",
+            "Tester",
+            "Developer"});
+            this.cmb_post.Location = new System.Drawing.Point(563, 385);
+            this.cmb_post.Name = "cmb_post";
+            this.cmb_post.Size = new System.Drawing.Size(137, 21);
+            this.cmb_post.TabIndex = 45;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(261, 394);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(62, 13);
+            this.label22.TabIndex = 44;
+            this.label22.Text = "Select Role";
+            // 
+            // Txt_pass2
+            // 
+            this.Txt_pass2.Location = new System.Drawing.Point(563, 483);
+            this.Txt_pass2.Name = "Txt_pass2";
+            this.Txt_pass2.PasswordChar = '*';
+            this.Txt_pass2.Size = new System.Drawing.Size(100, 20);
+            this.Txt_pass2.TabIndex = 43;
+            // 
+            // Txt_pass1
+            // 
+            this.Txt_pass1.Location = new System.Drawing.Point(563, 434);
+            this.Txt_pass1.Name = "Txt_pass1";
+            this.Txt_pass1.PasswordChar = '*';
+            this.Txt_pass1.Size = new System.Drawing.Size(100, 20);
+            this.Txt_pass1.TabIndex = 42;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(261, 490);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(91, 13);
+            this.label23.TabIndex = 41;
+            this.label23.Text = "Confirm Password";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(261, 441);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(81, 13);
+            this.label24.TabIndex = 40;
+            this.label24.Text = "Enter Password";
+            // 
+            // txt_lname
+            // 
+            this.txt_lname.Location = new System.Drawing.Point(563, 168);
+            this.txt_lname.Name = "txt_lname";
+            this.txt_lname.Size = new System.Drawing.Size(100, 20);
+            this.txt_lname.TabIndex = 39;
+            // 
+            // Txt_Con
+            // 
+            this.Txt_Con.Location = new System.Drawing.Point(563, 223);
+            this.Txt_Con.Name = "Txt_Con";
+            this.Txt_Con.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Con.TabIndex = 38;
+            // 
+            // Txt_add
+            // 
+            this.Txt_add.Location = new System.Drawing.Point(563, 284);
+            this.Txt_add.Name = "Txt_add";
+            this.Txt_add.Size = new System.Drawing.Size(100, 20);
+            this.Txt_add.TabIndex = 37;
+            // 
+            // Txt_user
+            // 
+            this.Txt_user.Location = new System.Drawing.Point(563, 341);
+            this.Txt_user.Name = "Txt_user";
+            this.Txt_user.Size = new System.Drawing.Size(100, 20);
+            this.Txt_user.TabIndex = 36;
+            // 
+            // Txt_fname
+            // 
+            this.Txt_fname.Location = new System.Drawing.Point(563, 116);
+            this.Txt_fname.Name = "Txt_fname";
+            this.Txt_fname.Size = new System.Drawing.Size(100, 20);
+            this.Txt_fname.TabIndex = 35;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(261, 344);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(83, 13);
+            this.label25.TabIndex = 34;
+            this.label25.Text = "Enter Username";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(261, 175);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(86, 13);
+            this.label26.TabIndex = 33;
+            this.label26.Text = "Enter Last Name";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(261, 230);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(87, 13);
+            this.label28.TabIndex = 32;
+            this.label28.Text = "Enter Contact no";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(261, 291);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(73, 13);
+            this.label29.TabIndex = 31;
+            this.label29.Text = "Enter Address";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(261, 119);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(85, 13);
+            this.label31.TabIndex = 29;
+            this.label31.Text = "Enter First Name";
             // 
             // Dashboard
             // 
@@ -607,6 +1115,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error_table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.program_table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.user_table)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -614,7 +1123,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.FastColour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.program_grid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.error_table)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_source1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_desc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_data_error)).EndInit();
+            this.history_page.ResumeLayout(false);
+            this.history_page.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fast1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_bug_view)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_data_history)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -670,5 +1190,46 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txt_desc1;
+        private System.Windows.Forms.TabPage history_page;
+        private System.Windows.Forms.TextBox txt_description1;
+        private System.Windows.Forms.Label label20;
+        private FastColoredTextBoxNS.FastColoredTextBox txt_source1;
+        private System.Windows.Forms.PictureBox pic_desc;
+        private System.Windows.Forms.TextBox txt_cause1;
+        private System.Windows.Forms.TextBox txt_symptom1;
+        private System.Windows.Forms.TextBox txt_class_name;
+        private System.Windows.Forms.TextBox txt_method_name;
+        private System.Windows.Forms.TextBox txt_program_name;
+        private System.Windows.Forms.Button btn_view;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.DataGridView tbl_data_error;
+        private System.Windows.Forms.ComboBox cmb_status;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.TextBox txt_date1;
+        private System.Windows.Forms.TabPage tabPage5;
+        private FastColoredTextBoxNS.FastColoredTextBox fast1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView tbl_bug_view;
+        private System.Windows.Forms.Button button_add;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridView tbl_data_history;
+        private System.Windows.Forms.ComboBox cmb_post;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.MaskedTextBox Txt_pass2;
+        private System.Windows.Forms.MaskedTextBox Txt_pass1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txt_lname;
+        private System.Windows.Forms.TextBox Txt_Con;
+        private System.Windows.Forms.TextBox Txt_add;
+        private System.Windows.Forms.TextBox Txt_user;
+        private System.Windows.Forms.TextBox Txt_fname;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label31;
     }
 }

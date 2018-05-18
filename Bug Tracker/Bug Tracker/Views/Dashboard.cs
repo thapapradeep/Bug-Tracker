@@ -19,6 +19,7 @@ namespace Bug_Tracker.Forms.Views
     {
 
         int id = 0;
+        int tbl_data_error_id = 0;
         byte[] imgdata;
         int bug_id = 0;
         int user_id = 0;
@@ -30,13 +31,15 @@ namespace Bug_Tracker.Forms.Views
             InitializeComponent();
 
             FastColour.Language = FastColoredTextBoxNS.Language.CSharp;
+            txt_source1.Language = FastColoredTextBoxNS.Language.CSharp;
             this.id = id;
             this.post = post;
             label1.Text = "Welcome" + " " + post;
 
             load_programs();
             load_users();
-            loadErrors(); 
+            loadErrors();
+           
         }
 
         private void btn_signout_Click(object sender, EventArgs e)
@@ -307,6 +310,228 @@ namespace Bug_Tracker.Forms.Views
                 txt_desc1.Text = "";
             }
 
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbl_data_error_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btn_view_Click(object sender, EventArgs e)
+        {
+            BugDAO us = new BugDAO();
+            OracleDataAdapter data = us.GetBugs();
+            DataTable dataset = new DataTable();
+            data.Fill(dataset);
+            BindingSource bsource = new BindingSource();
+            bsource.DataSource = dataset;
+           tbl_data_error.DataSource = bsource;
+            data.Update(dataset);
+
+        }
+
+        private void tbl_data_error_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BugDAO bg = new BugDAO();
+            String value = error_table.Rows[e.RowIndex].Cells[0].Value.ToString();
+           tbl_data_error_id = int.Parse(value);
+            DataTable dr = bg.GetAllBugs(tbl_data_error_id);
+            if (dr!=null)
+            {
+
+                txt_program_name.Text="Program:  "+ dr.Rows[0][1].ToString();
+                txt_class_name.Text= "Class:  "+dr.Rows[0][2].ToString();
+                txt_method_name.Text = "Method:  "+dr.Rows[0][3].ToString();
+                txt_symptom1.Text= "Symptoms:  "+dr.Rows[0][6].ToString();
+                txt_cause1.Text = "Cause:  "+dr.Rows[0][7].ToString();
+                txt_date1.Text = " Date:  " + dr.Rows[0][9].ToString();
+                txt_description1.Text= "Image name:  " + dr.Rows[0][9].ToString();
+                linkLabel1.Text=  dr.Rows[0][10].ToString();
+                txt_source1.Text = dr.Rows[0][11].ToString();
+
+                byte[] imgData = (byte[])dr.Rows[0][8];
+                MemoryStream ms = new MemoryStream();
+                ms.Write(imgData, 0, imgData.Length);
+                Bitmap bmp = new Bitmap(ms, false);
+                pic_desc.Image = bmp;
+                ms.Dispose();
+
+            }
+
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
+            String status = cmb_status.Text;
+            String code_block = txt_source1.Text;
+            BugHistory bg = new BugHistory()
+            {
+                bug_id = tbl_data_error_id,
+                user_id = id,
+                status = status,
+                code_block = code_block
+             
+            };
+            BugHistoryDAO bug = new BugHistoryDAO();
+            int done = bug.Insert(bg);
+            if (done != 0)
+            {
+                MessageBox.Show("Updated");
+            }
+
+        }
+
+        private void button_add_Click(object sender, EventArgs e)
+        {
+            int type = 0;
+            String fname = Txt_fname.Text;
+            String lname = txt_lname.Text;
+            String con = Txt_Con.Text;
+            String add = Txt_add.Text;
+            String user = Txt_user.Text;
+            String pass1 = Txt_pass1.Text;
+            String pass2 = Txt_pass2.Text;
+            String post = cmb_post.Text;
+
+            if (post == "Admin")
+            {
+                type = 1;
+            }
+            else if (post == "Tester")
+            {
+                type = 2;
+            }
+            else if (post == "Developer")
+            {
+                type = 3;
+            }
+
+
+            if (string.IsNullOrEmpty(fname))
+            {
+                MessageBox.Show("Please Enter First Name");
+            }
+
+
+            else if (string.IsNullOrEmpty(lname))
+            {
+                MessageBox.Show("Please Enter Lastname");
+            }
+
+
+            else if (string.IsNullOrEmpty(con))
+            {
+                MessageBox.Show("Please Enter Contact No");
+            }
+            else if (string.IsNullOrEmpty(add))
+            {
+                MessageBox.Show("Please Enter Address");
+            }
+            else if (string.IsNullOrEmpty(user))
+            {
+                MessageBox.Show("Please Enter Username");
+            }
+            else if (string.IsNullOrEmpty(pass1))
+            {
+                MessageBox.Show("Please Enter Password");
+            }
+            else if (string.IsNullOrEmpty(pass2))
+            {
+                MessageBox.Show("Please Enter password");
+            }
+
+            else if (pass1 != pass2)
+            {
+                MessageBox.Show("Password Do not Math");
+            }
+            else
+            {
+                UserTable us = new UserTable()
+                {
+                    address = add,
+                    contact = con,
+                    fname = fname,
+                    lname = lname,
+                    username = user,
+                    password = pass1,
+                    type_id = type
+                };
+                UserDAO users = new UserDAO();
+                int done = users.Insert(us);
+                if (done != 0)
+                {
+                    MessageBox.Show("user registered");
+                    this.Hide();
+                    new Login().Show();
+                }
+                else
+                {
+                    MessageBox.Show("Something Went Wrong");
+                }
+
+            }
+
+
+
+            }
+
+            private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click_2(object sender, EventArgs e)
+        {
+            BugDAO us = new BugDAO();
+            OracleDataAdapter data = us.GetBugs();
+            DataTable dataset = new DataTable();
+            data.Fill(dataset);
+            BindingSource bsource = new BindingSource();
+            bsource.DataSource = dataset;
+            tbl_bug_view.DataSource = bsource;
+            data.Update(dataset);
+
+            
+
+        }
+
+        private void tbl_bug_view_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+             String value = error_table.Rows[e.RowIndex].Cells[0].Value.ToString();
+             bug_id = int.Parse(value);
+
+            BugDAO us = new BugDAO();
+            DataTable data = us.GetBugs(bug_id);
+            BindingSource bsource = new BindingSource();
+            bsource.DataSource = data;
+            tbl_data_history.DataSource = bsource;
+
+          
+        }
+
+        private void tbl_data_history_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String value = tbl_data_history.Rows[e.RowIndex].Cells[0].Value.ToString();
+           int  bug_id1 = int.Parse(value);
+            
+            
+            BugHistory bg = new BugHistory()
+            {
+               id=bug_id1
+              
+            };
+
+            BugHistoryDAO bug =new BugHistoryDAO();
+            String code = bug.GetCodeBlock(bg);
+            MessageBox.Show("Code  " + code);
+            fast1.Text = code; 
         }
     }
 }

@@ -64,6 +64,7 @@ namespace Bug_Tracker
                          post = dr.GetString(1);
                         
                     }
+                    dr.Dispose();
                     Dashboard db = new Dashboard(user_id, post);
                     db.Show();
                     this.Hide();

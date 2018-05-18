@@ -7,6 +7,7 @@ using Bug_Tracker.Forms.Model;
 using Bug_Tracker.Forms.DB;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
+using System.Data;
 
 namespace Bug_Tracker.Forms.DAO
 {
@@ -27,6 +28,30 @@ namespace Bug_Tracker.Forms.DAO
         public Bug GetById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public DataTable GetAllBugs(int id)
+        {
+            conn.Open();
+            DataTable data = null;
+            //try
+            //{
+
+            OracleCommand cmd = conn.CreateCommand();
+            cmd.CommandText="select b.bug_id, p.program_name, b.class_name, b.method_name,b.line_no, b.added_date," +
+                    " d.symptom, d.cause, d.image,d.image_name, d.source_link, d.code_block " +
+                    "from ASE.bug b, ASE.bug_details d, ASE.program p where b.bug_id = d.bug_id and p.program_id = b.program_id and b.bug_id =:id ";
+
+                cmd.Parameters.Add(":id", id);
+                 data = new DataTable();
+                data.Load(cmd.ExecuteReader());
+            //}
+           // catch(Exception ex)
+            //{
+
+            //}
+
+            return data;
         }
 
         public int Insert(Bug t)
@@ -58,8 +83,8 @@ namespace Bug_Tracker.Forms.DAO
                         }
                     }
                 }
-            
-            
+
+            conn.Close();
             return id;
 
         }
@@ -68,12 +93,33 @@ namespace Bug_Tracker.Forms.DAO
         {
             OracleConnection conn = ConnectToDB.Connect();
             conn.Open();
-            OracleDataAdapter data = new OracleDataAdapter("select b.bug_id, p.program_name, b.class_name, b.method_name from ASE.bug b, ASE.program p where p.program_id=b.bug_id", conn);
+
+            OracleDataAdapter data = new OracleDataAdapter("select b.bug_id, p.program_name, b.class_name, b.method_name from ASE.bug b, ASE.program p where p.program_id=b.program_id", conn);
+            conn.Close();
             return data;
+            
         }
             public int Update(Bug t)
         {
             throw new NotImplementedException();
         }
+        public DataTable GetBugs( int id)
+        {
+            OracleConnection conn = ConnectToDB.Connect();
+            conn.Open();
+            OracleCommand command = conn.CreateCommand();
+            command.CommandText = "select b.id, b.bug_id, u.fname, b.attemped_date, b.status from ASE.bug_history b, ASE.user_table u where u.user_id=b.user_id and bug_id=:id";
+            command.Parameters.Add(":id", id);
+
+            DataTable dr = new DataTable();
+            dr.Load(command.ExecuteReader());
+  
+            
+            conn.Close();
+            return dr;
+
+        }
+
+        
     }
 }
