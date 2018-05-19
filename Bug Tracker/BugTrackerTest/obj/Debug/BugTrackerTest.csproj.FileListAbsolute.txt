@@ -1,0 +1,20 @@
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\BugTrackerTest.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\BugTrackerTest.pdb
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Bug Tracker.exe
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Oracle.ManagedDataAccessDTC.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\FastColoredTextBox.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Bug Tracker.pdb
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Bug Tracker.exe.config
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\bin\Debug\FastColoredTextBox.xml
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\obj\Debug\BugTrackerTest.csprojResolveAssemblyReference.cache
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\obj\Debug\BugTrackerTest.csproj.CoreCompileInputs.cache
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\obj\Debug\BugTrackerTest.dll
+D:\Bug Tracker\Bug Tracker\BugTrackerTest\obj\Debug\BugTrackerTest.pdb

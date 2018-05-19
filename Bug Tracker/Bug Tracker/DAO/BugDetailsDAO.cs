@@ -10,7 +10,7 @@ using Bug_Tracker.Forms.DB;
 
 namespace Bug_Tracker.Forms.DAO
 {
-    class BugDetailsDAO : GenericDAO<BugDetails>
+  public  class BugDetailsDAO : GenericDAO<BugDetails>
     {
 
         OracleConnection conn = ConnectToDB.Connect();

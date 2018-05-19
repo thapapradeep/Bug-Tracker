@@ -10,7 +10,7 @@ namespace Bug_Tracker.Forms.DAO
     /// Generic Class
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    interface GenericDAO<T>
+   public  interface GenericDAO<T>
     {
         /// <summary>
         /// Method to inseert into database

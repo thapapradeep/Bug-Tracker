@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bug_Tracker.Forms.Model
 {
-    class BugDetails
+     public  class BugDetails
     {
         public int bug_id { get; set; }
         public string symptom { get; set; }

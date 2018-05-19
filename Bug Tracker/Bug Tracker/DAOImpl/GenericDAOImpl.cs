@@ -8,7 +8,7 @@ using Bug_Tracker.Forms.DAO;
 
 namespace Bug_Tracker.Forms.DAOImpl
 {
-    abstract class GenericDAOImpl<T> : GenericDAO<T>
+    public abstract class GenericDAOImpl<T> : GenericDAO<T>
     {
         public bool Delete(int id)
         {

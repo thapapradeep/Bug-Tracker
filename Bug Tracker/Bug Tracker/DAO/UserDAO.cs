@@ -12,7 +12,7 @@ using Bug_Tracker.Forms.DB;
 
 namespace Bug_Tracker.Forms.DAO
 {
-    class UserDAO : GenericDAO<UserTable>
+     public class UserDAO : GenericDAO<UserTable>
     {
         OracleConnection conn = ConnectToDB.Connect();
         public bool Delete(int id)
@@ -82,9 +82,18 @@ namespace Bug_Tracker.Forms.DAO
 
         public int Update(UserTable t)
         {
+            int done = 0;
+            conn.Open();
+            
+            OracleCommand command = conn.CreateCommand();
+            command.CommandText = "update ASE.user_table set password = "+ t.password+" where user_id = "+t.user_id+"";
+            command.Parameters.Add(":id", t.user_id);
+            command.Parameters.Add(":password", t.password);
+            done = command.ExecuteNonQuery();
+            return done;
 
             
-            throw new NotImplementedException();
+            
         }
         public OracleDataAdapter GetUsers() 
         {

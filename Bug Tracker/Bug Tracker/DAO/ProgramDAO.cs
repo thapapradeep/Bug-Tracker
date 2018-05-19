@@ -12,7 +12,7 @@ using System.Data;
 
 namespace Bug_Tracker.Forms.DAO
 {
-    class ProgramDAO : GenericDAO<Programs>
+   public  class ProgramDAO : GenericDAO<Programs>
     {
         OracleConnection conn = ConnectToDB.Connect();
         public bool Delete(int id)
@@ -40,13 +40,11 @@ namespace Bug_Tracker.Forms.DAO
             command.Parameters.Add(":program_name", t.program_name);
             command.Parameters.Add(":language", t.language);
             int done = command.ExecuteNonQuery();
-            if (done != 0)
-            {
-                return done;
-              
-            }
             
-            return id;
+            return done;
+              
+           
+            
         }
 
         public int Update(Programs t)

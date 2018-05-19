@@ -9,7 +9,7 @@ using Bug_Tracker.Forms.DB;
 
 namespace Bug_Tracker.Forms.DAO
 {
-    class UserAssignDAO : GenericDAO<UserAssign>
+    public class UserAssignDAO : GenericDAO<UserAssign>
     {
         OracleConnection conn = ConnectToDB.Connect();
         public bool Delete(int id)

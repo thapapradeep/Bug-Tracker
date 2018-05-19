@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Bug_Tracker.Forms.DAO
 {
-    class BugDAO : GenericDAO<Bug>
+     public class BugDAO : GenericDAO<Bug>
 
     {
         OracleConnection conn = ConnectToDB.Connect();

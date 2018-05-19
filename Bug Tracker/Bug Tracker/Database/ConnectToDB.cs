@@ -11,7 +11,7 @@ namespace Bug_Tracker.Forms.DB
     /// <summary>
     /// Class To connect With Database
     /// </summary>
-    class ConnectToDB
+   public class ConnectToDB
     {
         /// <summary>
         /// Static method that returns OracleConnection

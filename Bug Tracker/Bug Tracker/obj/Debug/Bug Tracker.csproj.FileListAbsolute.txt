@@ -12,3 +12,4 @@ D:\Bug Tracker\Bug Tracker\Bug Tracker\bin\Debug\Oracle.ManagedDataAccess.dll
 D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Forms.Views.Dashboard.resources
 D:\Bug Tracker\Bug Tracker\Bug Tracker\bin\Debug\FastColoredTextBox.dll
 D:\Bug Tracker\Bug Tracker\Bug Tracker\bin\Debug\FastColoredTextBox.xml
+D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Forms.Views.PasswordUpdate.resources

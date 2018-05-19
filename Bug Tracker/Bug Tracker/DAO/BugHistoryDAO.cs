@@ -9,7 +9,7 @@ using Bug_Tracker.Forms.DB;
 
 namespace Bug_Tracker.Forms.DAO
 {
-    class BugHistoryDAO : GenericDAO<BugHistory>
+   public class BugHistoryDAO : GenericDAO<BugHistory>
     {
         OracleConnection conn = ConnectToDB.Connect();
         public bool Delete(int id)

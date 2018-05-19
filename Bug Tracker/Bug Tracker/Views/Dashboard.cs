@@ -675,5 +675,23 @@ namespace Bug_Tracker.Forms.Views
         {
 
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            PasswordUpdate pu = new PasswordUpdate(id);
+            pu.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            PasswordUpdate pu = new PasswordUpdate(id);
+            pu.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            PasswordUpdate pu = new PasswordUpdate(id);
+            pu.Show();
+        }
     }
 }

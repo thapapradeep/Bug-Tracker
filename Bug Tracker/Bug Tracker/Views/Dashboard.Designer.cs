@@ -53,16 +53,21 @@
             this.btn_signout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.Tbl_grid2 = new System.Windows.Forms.DataGridView();
             this.Tbl_grid = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.Tbl_grid1 = new System.Windows.Forms.DataGridView();
             this.Tester_bug = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txt_found_by = new System.Windows.Forms.TextBox();
             this.txt_date1 = new System.Windows.Forms.TextBox();
             this.cmb_status = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -81,6 +86,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.Tbl_data_error = new System.Windows.Forms.DataGridView();
             this.history_page = new System.Windows.Forms.TabPage();
+            this.label35 = new System.Windows.Forms.Label();
             this.cmb_post = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.Txt_pass2 = new System.Windows.Forms.MaskedTextBox();
@@ -130,12 +136,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.Program_grid = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label35 = new System.Windows.Forms.Label();
-            this.txt_found_by = new System.Windows.Forms.TextBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Error_table)).BeginInit();
@@ -179,6 +182,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button9);
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.txt_desc1);
             this.tabPage1.Controls.Add(this.label17);
@@ -397,6 +401,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button10);
             this.tabPage6.Controls.Add(this.button8);
             this.tabPage6.Controls.Add(this.button7);
             this.tabPage6.Controls.Add(this.label32);
@@ -410,6 +415,26 @@
             this.tabPage6.TabIndex = 6;
             this.tabPage6.Text = "Programmer Panel";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(879, 6);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "Exit";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(785, 6);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "Log Out";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label32
             // 
@@ -450,6 +475,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button11);
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.button5);
             this.tabPage4.Controls.Add(this.label33);
@@ -463,6 +489,26 @@
             this.tabPage4.TabIndex = 5;
             this.tabPage4.Text = "Tester Panel";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(778, 4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 16;
+            this.button6.Text = "Log Out";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(879, 4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Exit";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label33
             // 
@@ -526,6 +572,14 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "View Error Details";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // txt_found_by
+            // 
+            this.txt_found_by.Enabled = false;
+            this.txt_found_by.Location = new System.Drawing.Point(248, 383);
+            this.txt_found_by.Name = "txt_found_by";
+            this.txt_found_by.Size = new System.Drawing.Size(161, 20);
+            this.txt_found_by.TabIndex = 58;
             // 
             // txt_date1
             // 
@@ -601,6 +655,7 @@
             this.txt_source1.CharWidth = 8;
             this.txt_source1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_source1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.txt_source1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.txt_source1.IsReplaceMode = false;
             this.txt_source1.Location = new System.Drawing.Point(501, 65);
             this.txt_source1.Name = "txt_source1";
@@ -729,6 +784,16 @@
             this.history_page.TabIndex = 3;
             this.history_page.Text = "Add User";
             this.history_page.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(363, 42);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(217, 29);
+            this.label35.TabIndex = 46;
+            this.label35.Text = "Register New User";
             // 
             // cmb_post
             // 
@@ -924,12 +989,13 @@
         '\"',
         '\'',
         '\''};
-            this.fast1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.fast1.AutoScrollMinSize = new System.Drawing.Size(2, 14);
             this.fast1.BackBrush = null;
             this.fast1.CharHeight = 14;
             this.fast1.CharWidth = 8;
             this.fast1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fast1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.fast1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fast1.IsReplaceMode = false;
             this.fast1.Location = new System.Drawing.Point(498, 101);
             this.fast1.Name = "fast1";
@@ -1052,13 +1118,12 @@
         '\"',
         '\'',
         '\''};
-            this.FastColour.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.FastColour.AutoScrollMinSize = new System.Drawing.Size(2, 14);
             this.FastColour.BackBrush = null;
             this.FastColour.CharHeight = 14;
             this.FastColour.CharWidth = 8;
             this.FastColour.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.FastColour.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.FastColour.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.FastColour.IsReplaceMode = false;
             this.FastColour.Location = new System.Drawing.Point(496, 64);
             this.FastColour.Name = "FastColour";
@@ -1236,63 +1301,35 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Register Error  Here";
             // 
-            // button5
+            // button9
             // 
-            this.button5.Location = new System.Drawing.Point(879, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Exit";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button9.Location = new System.Drawing.Point(681, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(97, 23);
+            this.button9.TabIndex = 21;
+            this.button9.Text = "Update Password";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button6
+            // button10
             // 
-            this.button6.Location = new System.Drawing.Point(778, 4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "Log Out";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            this.button10.Location = new System.Drawing.Point(880, 38);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 17;
+            this.button10.Text = "Change Password";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // button7
+            // button11
             // 
-            this.button7.Location = new System.Drawing.Point(785, 6);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "Log Out";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(879, 6);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 16;
-            this.button8.Text = "Exit";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(363, 42);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(217, 29);
-            this.label35.TabIndex = 46;
-            this.label35.Text = "Register New User";
-            // 
-            // txt_found_by
-            // 
-            this.txt_found_by.Enabled = false;
-            this.txt_found_by.Location = new System.Drawing.Point(248, 383);
-            this.txt_found_by.Name = "txt_found_by";
-            this.txt_found_by.Size = new System.Drawing.Size(161, 20);
-            this.txt_found_by.TabIndex = 58;
+            this.button11.Location = new System.Drawing.Point(880, 48);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.TabIndex = 17;
+            this.button11.Text = "Change Password";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Dashboard
             // 
@@ -1445,5 +1482,8 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox txt_found_by;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }
