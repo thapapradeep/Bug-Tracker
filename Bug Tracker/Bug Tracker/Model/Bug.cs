@@ -14,6 +14,7 @@ namespace Bug_Tracker.Forms.Model
         public string method_name { get; set; }
         public int line_number { get; set; }
         public DateTime added_date { get; set; }
+        public int found_by { set; get; }
 
     }
 }

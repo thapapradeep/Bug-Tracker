@@ -8,7 +8,6 @@ D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug Tracker.exe
 D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug Tracker.pdb
 D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Login.resources
 D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Forms.Properties.Resources.resources
-D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Forms.Signup.resources
 D:\Bug Tracker\Bug Tracker\Bug Tracker\bin\Debug\Oracle.ManagedDataAccess.dll
 D:\Bug Tracker\Bug Tracker\Bug Tracker\obj\Debug\Bug_Tracker.Forms.Views.Dashboard.resources
 D:\Bug Tracker\Bug Tracker\Bug Tracker\bin\Debug\FastColoredTextBox.dll

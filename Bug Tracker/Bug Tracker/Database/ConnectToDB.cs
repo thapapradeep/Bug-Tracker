@@ -8,10 +8,19 @@ using Oracle.ManagedDataAccess.Types;
 
 namespace Bug_Tracker.Forms.DB
 {
+    /// <summary>
+    /// Class To connect With Database
+    /// </summary>
     class ConnectToDB
     {
+        /// <summary>
+        /// Static method that returns OracleConnection
+        /// </summary>
+        /// <returns></returns>
         public static OracleConnection Connect()
         {
+           
+
             string oradb = " Data Source= DESKTOP-O4LMVGT:1521/XE; User ID = SYSTEM;Password=destination2210 ";
             OracleConnection con = new OracleConnection(oradb);
             

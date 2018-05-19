@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Bug_Tracker.Forms;
 using Bug_Tracker.Forms.Views;
 using Bug_Tracker.Forms.DB;
+using Bug_Tracker.Forms.Model;
+using Bug_Tracker.Forms.DAO;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
 
@@ -28,33 +30,22 @@ namespace Bug_Tracker
         {
             String user = txt_user.Text;
             String pass = txt_pass.Text;
-            Console.WriteLine("hello");
-            ConnectToDB cd = new ConnectToDB();
+            
 
-
-            if (user.Equals(null))
+            if (String.IsNullOrEmpty(user) || String.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("Please Enter Username");
+                MessageBox.Show("Please Enter Username and Password Correctly");
             }
-            else if (pass.Equals(null))
-            {
-                MessageBox.Show("Please Enter Password");
-            }
+         
             else
             {
-                OracleConnection con = ConnectToDB.Connect();
-                con.Open();
-                OracleCommand command= con.CreateCommand();
-                command.CommandText= "select u.user_id, t.type_name from ASE.user_table u, ASE.user_type t where t.type_id = u.type_id and username =:username and password =:password";
-
-
-                OracleParameter op = new OracleParameter();
-                command.Parameters.Add(":username", user);
-                command.Parameters.Add(":password", pass);
-
-
-
-                OracleDataReader dr = command.ExecuteReader();
+                UserTable us = new UserTable()
+                {
+                    username = user,
+                    password = pass
+                };
+                UserDAO usdao = new UserDAO();
+                OracleDataReader dr = usdao.UserLogin(us);
                 if (dr.HasRows)
                 {
                     int user_id=0;
@@ -82,9 +73,7 @@ namespace Bug_Tracker
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Signup sn = new Signup();
-            sn.Show();
-            this.Hide();
+           
         }
     }
 }

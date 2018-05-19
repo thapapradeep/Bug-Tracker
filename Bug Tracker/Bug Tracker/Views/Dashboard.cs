@@ -19,7 +19,7 @@ namespace Bug_Tracker.Forms.Views
     {
 
         int id = 0;
-        int tbl_data_error_id = 0;
+        int Tbl_data_error_id = 0;
         byte[] imgdata;
         int bug_id = 0;
         int user_id = 0;
@@ -35,10 +35,39 @@ namespace Bug_Tracker.Forms.Views
             this.id = id;
             this.post = post;
             label1.Text = "Welcome" + " " + post;
+           // MessageBox.Show(post);
+            if (post == "Admin")
+            {
+                tabControl1.TabPages.Remove(tabPage6);
+                tabControl1.TabPages.Remove(tabPage2);
+                tabControl1.TabPages.Remove(tabPage4);
+                cmb_status.Enabled = false;
+                btn_update.Enabled = false;
+                load_programs();
+                load_users();
+                loadErrors();
 
-            load_programs();
-            load_users();
-            loadErrors();
+            }
+            else if (post == "Programmer")
+            {
+                tabControl1.TabPages.Remove(tabPage1);
+                tabControl1.TabPages.Remove(tabPage4);
+                tabControl1.TabPages.Remove(history_page);
+                loadErrors();
+                load_Programmer_bugs();
+
+            }
+            else
+            {
+                tabControl1.TabPages.Remove(tabPage1);
+                tabControl1.TabPages.Remove(tabPage6);
+                tabControl1.TabPages.Remove(history_page);
+                loadErrors();
+                load_tester_bugs();
+
+
+            }
+                
            
         }
 
@@ -85,7 +114,7 @@ namespace Bug_Tracker.Forms.Views
             data.Fill(dataset);
             BindingSource bsource = new BindingSource();
             bsource.DataSource = dataset;
-            program_table.DataSource = bsource;
+            Program_table.DataSource = bsource;
             data.Update(dataset);
         }
         public void load_users()
@@ -96,9 +125,27 @@ namespace Bug_Tracker.Forms.Views
             data.Fill(dataset);
             BindingSource bsource = new BindingSource();
             bsource.DataSource = dataset;
-            user_table.DataSource = bsource;
+            User_table.DataSource = bsource;
             data.Update(dataset);
         }
+        public void load_Programmer_bugs()
+        {
+            BugDAO us = new BugDAO();
+            DataTable data = us.GetProgrammerBugs(id);
+            BindingSource bsource = new BindingSource();
+            bsource.DataSource = data;
+            Tbl_grid.DataSource = bsource;
+        }
+
+        public void load_tester_bugs()
+        {
+            BugDAO us = new BugDAO();
+            DataTable data = us.GetTesterBugs(id);
+            BindingSource bsource = new BindingSource();
+            bsource.DataSource = data;
+            Tester_bug.DataSource = bsource;
+        }
+
         public void loadErrors()
         {
             BugDAO us = new BugDAO();
@@ -107,7 +154,9 @@ namespace Bug_Tracker.Forms.Views
             data.Fill(dataset);
             BindingSource bsource = new BindingSource();
             bsource.DataSource = dataset;
-            error_table.DataSource = bsource;
+            Error_table.DataSource = bsource;
+            Tbl_grid1.DataSource = bsource;
+            Tbl_grid2.DataSource = bsource;
             data.Update(dataset);
         }
 
@@ -121,7 +170,7 @@ namespace Bug_Tracker.Forms.Views
         private void user_table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
            
-            String value = user_table.Rows[e.RowIndex].Cells[0].Value.ToString();
+            String value = User_table.Rows[e.RowIndex].Cells[0].Value.ToString();
             user_id = int.Parse(value);
           
 
@@ -152,7 +201,7 @@ namespace Bug_Tracker.Forms.Views
 
         private void program_table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String value = program_table.Rows[e.RowIndex].Cells[0].Value.ToString();
+            String value = Program_table.Rows[e.RowIndex].Cells[0].Value.ToString();
             program_id = int.Parse(value);
 
 
@@ -200,14 +249,22 @@ namespace Bug_Tracker.Forms.Views
             data.Fill(dataset);
             BindingSource bsource = new BindingSource();
             bsource.DataSource = dataset;
-            program_grid.DataSource = bsource;
+            Program_grid.DataSource = bsource;
             data.Update(dataset);
         }
 
         private void program_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String value = program_table.Rows[e.RowIndex].Cells[0].Value.ToString();
-            program_id = int.Parse(value);
+           
+            if (e.RowIndex != -1)
+            {
+                String value = Program_table.Rows[e.RowIndex].Cells[0].Value.ToString() ;
+                program_id = int.Parse(value);
+            }
+            else
+            {
+                MessageBox.Show("Please select row");
+            }
         }
 
         public void ClearFields()
@@ -238,19 +295,54 @@ namespace Bug_Tracker.Forms.Views
             String code_block = FastColour.Text;
             String source_link = txt_link.Text;
 
-            if(String.IsNullOrEmpty(class_name)|| String.IsNullOrEmpty(method) || String.IsNullOrEmpty(symptom) || String.IsNullOrEmpty(cause) || String.IsNullOrEmpty(path) || String.IsNullOrEmpty(img_desc) || program_id==0 || String.IsNullOrEmpty(code_block) || String.IsNullOrEmpty(source_link))
+            if(String.IsNullOrEmpty(class_name))
             {
 
                 
                 MessageBox.Show("Please Provide Valid Information");
             }
-            else{
+            else if ( String.IsNullOrEmpty(method))
+            {
+                MessageBox.Show("Please Provide Valid mathod name");
+            }
+            else if (String.IsNullOrEmpty(symptom))
+            {
+                MessageBox.Show("Please Provide Valid Symptom");
+            }
+            else if (String.IsNullOrEmpty(cause))
+            {
+                MessageBox.Show("Please Provide Valid Cause");
+            }
+            else if (String.IsNullOrEmpty(path))
+            {
+                MessageBox.Show("Please Provide Valid Path");
+            }
+            else if (String.IsNullOrEmpty(img_desc))
+            {
+                MessageBox.Show("Please Provide Valid Image Description");
+            }
+            else if (program_id==0)
+            {
+                MessageBox.Show("Please Select program from Table");
+            }
+            else if (String.IsNullOrEmpty(source_link))
+            {
+                MessageBox.Show("Please Provide Valid Source Link");
+            }
+            else if (String.IsNullOrEmpty(code_block))
+            {
+                MessageBox.Show("Please Provide Error Code");
+            }
+
+            else
+            {
                 Bug bug = new Bug()
-                 {
-                     program = program_id,
-                     class_name = class_name,
-                     method_name=method,
-                     line_number=linee
+                {
+                    program = program_id,
+                    class_name = class_name,
+                    method_name = method,
+                    line_number = linee,
+                    found_by = id
 
                  };
                  BugDAO bu = new BugDAO();
@@ -287,7 +379,7 @@ namespace Bug_Tracker.Forms.Views
 
         private void error_table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String value = error_table.Rows[e.RowIndex].Cells[0].Value.ToString();
+            String value = Error_table.Rows[e.RowIndex].Cells[0].Value.ToString();
              bug_id = int.Parse(value);
           
         }
@@ -330,7 +422,7 @@ namespace Bug_Tracker.Forms.Views
             data.Fill(dataset);
             BindingSource bsource = new BindingSource();
             bsource.DataSource = dataset;
-           tbl_data_error.DataSource = bsource;
+           Tbl_data_error.DataSource = bsource;
             data.Update(dataset);
 
         }
@@ -338,19 +430,20 @@ namespace Bug_Tracker.Forms.Views
         private void tbl_data_error_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             BugDAO bg = new BugDAO();
-            String value = error_table.Rows[e.RowIndex].Cells[0].Value.ToString();
-           tbl_data_error_id = int.Parse(value);
-            DataTable dr = bg.GetAllBugs(tbl_data_error_id);
-            if (dr!=null)
+            String value = Tbl_data_error.Rows[e.RowIndex].Cells[0].Value.ToString();
+           Tbl_data_error_id = int.Parse(value);
+            DataTable dr = bg.GetAllBugs(Tbl_data_error_id);
+            if (dr.Rows.Count>0)
             {
-
+               
                 txt_program_name.Text="Program:  "+ dr.Rows[0][1].ToString();
                 txt_class_name.Text= "Class:  "+dr.Rows[0][2].ToString();
                 txt_method_name.Text = "Method:  "+dr.Rows[0][3].ToString();
                 txt_symptom1.Text= "Symptoms:  "+dr.Rows[0][6].ToString();
                 txt_cause1.Text = "Cause:  "+dr.Rows[0][7].ToString();
-                txt_date1.Text = " Date:  " + dr.Rows[0][9].ToString();
+                txt_date1.Text = " Date:  " + dr.Rows[0][5].ToString();
                 txt_description1.Text= "Image name:  " + dr.Rows[0][9].ToString();
+                txt_found_by.Text = "Found by: " + dr.Rows[0][12].ToString();
                 linkLabel1.Text=  dr.Rows[0][10].ToString();
                 txt_source1.Text = dr.Rows[0][11].ToString();
 
@@ -361,6 +454,10 @@ namespace Bug_Tracker.Forms.Views
                 pic_desc.Image = bmp;
                 ms.Dispose();
 
+            }
+            else
+            {
+                MessageBox.Show("No data found");
             }
 
 
@@ -373,7 +470,7 @@ namespace Bug_Tracker.Forms.Views
             String code_block = txt_source1.Text;
             BugHistory bg = new BugHistory()
             {
-                bug_id = tbl_data_error_id,
+                bug_id = Tbl_data_error_id,
                 user_id = id,
                 status = status,
                 code_block = code_block
@@ -495,7 +592,7 @@ namespace Bug_Tracker.Forms.Views
             data.Fill(dataset);
             BindingSource bsource = new BindingSource();
             bsource.DataSource = dataset;
-            tbl_bug_view.DataSource = bsource;
+            BugView.DataSource = bsource;
             data.Update(dataset);
 
             
@@ -504,21 +601,21 @@ namespace Bug_Tracker.Forms.Views
 
         private void tbl_bug_view_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-             String value = error_table.Rows[e.RowIndex].Cells[0].Value.ToString();
+             String value = BugView.Rows[e.RowIndex].Cells[0].Value.ToString();
              bug_id = int.Parse(value);
 
             BugDAO us = new BugDAO();
             DataTable data = us.GetBugs(bug_id);
             BindingSource bsource = new BindingSource();
             bsource.DataSource = data;
-            tbl_data_history.DataSource = bsource;
+            Tbl_data_history.DataSource = bsource;
 
           
         }
 
         private void tbl_data_history_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String value = tbl_data_history.Rows[e.RowIndex].Cells[0].Value.ToString();
+            String value = Tbl_data_history.Rows[e.RowIndex].Cells[0].Value.ToString();
            int  bug_id1 = int.Parse(value);
             
             
@@ -532,6 +629,51 @@ namespace Bug_Tracker.Forms.Views
             String code = bug.GetCodeBlock(bg);
             MessageBox.Show("Code  " + code);
             fast1.Text = code; 
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Program_grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String id = Program_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+            program_id = int.Parse(id);
+        }
+
+        private void btn_load_program_Click(object sender, EventArgs e)
+        {
+            load_programs();
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            Login ls = new Login();
+            ls.Show();
+            this.Dispose();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Login ls = new Login();
+            ls.Show();
+            this.Dispose();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Txt_fname_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
