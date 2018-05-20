@@ -30,17 +30,29 @@ namespace Bug_Tracker.Forms.DAO
             throw new NotImplementedException();
         }
 
+
+        /// <summary>
+        /// Inserts data into program table and returns the integer
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public int Insert(Programs t)
         {
-            int id=0;
-            conn.Open();
-            OracleCommand command = conn.CreateCommand();
-            command.CommandText = "insert into ASE.program(program_id, program_name, language)" +
-                "values(null, :program_name, :language)";
-            command.Parameters.Add(":program_name", t.program_name);
-            command.Parameters.Add(":language", t.language);
-            int done = command.ExecuteNonQuery();
-            
+            int done = 0;
+            try
+            {
+                conn.Open();
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "insert into ASE.program(program_id, program_name, language)" +
+                    "values(null, :program_name, :language)";
+                command.Parameters.Add(":program_name", t.program_name);
+                command.Parameters.Add(":language", t.language);
+               done = command.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+
+            }            
             return done;
               
            
@@ -52,6 +64,12 @@ namespace Bug_Tracker.Forms.DAO
             throw new NotImplementedException();
         }
 
+
+        /// <summary>
+        /// Inserts data into user assign table 
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public int AssignUsers(ProgramAuthors t)
         {
             Console.WriteLine(t.program_id+" "+t.user_id);
@@ -75,6 +93,11 @@ namespace Bug_Tracker.Forms.DAO
 
         }
 
+
+        /// <summary>
+        /// Fetches the  program record in descending order and returns OracleDataAdapter
+        /// </summary>
+        /// <returns></returns>
         public OracleDataAdapter GetPrograms()
         {
             OracleConnection conn = ConnectToDB.Connect();

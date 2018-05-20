@@ -27,6 +27,12 @@ namespace Bug_Tracker.Forms.DAO
             throw new NotImplementedException();
         }
 
+
+        /// <summary>
+        /// Inserts data into User Assign table 
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public int Insert(UserAssign t)
         {
             int done = 0;

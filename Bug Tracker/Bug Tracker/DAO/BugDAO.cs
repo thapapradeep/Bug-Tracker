@@ -164,11 +164,19 @@ namespace Bug_Tracker.Forms.DAO
         /// <returns></returns>
         public OracleDataAdapter GetBugs()
         {
-            OracleConnection conn = ConnectToDB.Connect();
-            conn.Open();
+            OracleDataAdapter data = null;
+            try
+            {
+                OracleConnection conn = ConnectToDB.Connect();
+                conn.Open();
 
-            OracleDataAdapter data = new OracleDataAdapter("select b.bug_id, p.program_name, b.class_name, b.method_name from ASE.bug b, ASE.program p where p.program_id=b.program_id", conn);
-            conn.Close();
+                data = new OracleDataAdapter("select b.bug_id, p.program_name, b.class_name, b.method_name from ASE.bug b, ASE.program p where p.program_id=b.program_id", conn);
+                conn.Close();
+            }
+            catch(Exception ex)
+            {
+
+            }
             return data;
             
         }

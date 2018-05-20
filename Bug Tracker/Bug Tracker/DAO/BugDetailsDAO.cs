@@ -29,21 +29,34 @@ namespace Bug_Tracker.Forms.DAO
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Inserts data inserts bug details table. Takes BugDetails object and returns int 
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public int Insert(BugDetails t)
         {
-            conn.Open();
-            OracleCommand command = conn.CreateCommand();
-            command.CommandText = "insert into ASE.bug_details(bug_id, symptom, cause, image, image_name, source_link, code_block)" +
-            "values(:bug_id, :symptom, :cause, :image, :image_name, :source_link, :code_block)";
-            command.Parameters.Add(":bug_id", t.bug_id);
-            command.Parameters.Add(":symptom", t.symptom);
-            command.Parameters.Add(":cause", t.cause);
-            command.Parameters.Add(":image", (object)t.image);
-            command.Parameters.Add(":image_name", t.image_name);
-            command.Parameters.Add(":source_link", t.source_link);
-            command.Parameters.Add(":code_block", t.code_block);
+            int done = 0;
+            try
+            {
+                conn.Open();
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "insert into ASE.bug_details(bug_id, symptom, cause, image, image_name, source_link, code_block)" +
+                "values(:bug_id, :symptom, :cause, :image, :image_name, :source_link, :code_block)";
+                command.Parameters.Add(":bug_id", t.bug_id);
+                command.Parameters.Add(":symptom", t.symptom);
+                command.Parameters.Add(":cause", t.cause);
+                command.Parameters.Add(":image", (object)t.image);
+                command.Parameters.Add(":image_name", t.image_name);
+                command.Parameters.Add(":source_link", t.source_link);
+                command.Parameters.Add(":code_block", t.code_block);
 
-            int done = command.ExecuteNonQuery();
+                done = command.ExecuteNonQuery();
+            }
+            catch(Exception ex){
+                throw;
+
+            }
             return done;
         }
 

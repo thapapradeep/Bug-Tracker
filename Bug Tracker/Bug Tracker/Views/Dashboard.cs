@@ -12,6 +12,7 @@ using Bug_Tracker.Forms.DAO;
 using Oracle.ManagedDataAccess.Client;
 using Bug_Tracker.Forms.DB;
 using System.IO;
+using System.Diagnostics;
 
 namespace Bug_Tracker.Forms.Views
 {
@@ -34,10 +35,10 @@ namespace Bug_Tracker.Forms.Views
             txt_source1.Language = FastColoredTextBoxNS.Language.CSharp;
             this.id = id;
             this.post = post;
-            label1.Text = "Welcome" + " " + post;
-           // MessageBox.Show(post);
+            
             if (post == "Admin")
             {
+                label1.Text = "Welcome" + " " + post;
                 tabControl1.TabPages.Remove(tabPage6);
                 tabControl1.TabPages.Remove(tabPage2);
                 tabControl1.TabPages.Remove(tabPage4);
@@ -50,6 +51,7 @@ namespace Bug_Tracker.Forms.Views
             }
             else if (post == "Programmer")
             {
+                lbl_programmer.Text = "Welcome" + " " + post;
                 tabControl1.TabPages.Remove(tabPage1);
                 tabControl1.TabPages.Remove(tabPage4);
                 tabControl1.TabPages.Remove(history_page);
@@ -59,9 +61,12 @@ namespace Bug_Tracker.Forms.Views
             }
             else
             {
+                lbl_tester.Text = "Welcome" + " " + post;
                 tabControl1.TabPages.Remove(tabPage1);
                 tabControl1.TabPages.Remove(tabPage6);
                 tabControl1.TabPages.Remove(history_page);
+                cmb_status.Enabled = false;
+                btn_update.Enabled = false;
                 loadErrors();
                 load_tester_bugs();
 
@@ -169,11 +174,17 @@ namespace Bug_Tracker.Forms.Views
 
         private void user_table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
-            String value = User_table.Rows[e.RowIndex].Cells[0].Value.ToString();
-            user_id = int.Parse(value);
-          
+            if (e.RowIndex == -1)
+            {
+                MessageBox.Show("You Cannot Select This Row");
+            }
+            else
+            {
 
+                String value = User_table.Rows[e.RowIndex].Cells[0].Value.ToString();
+                user_id = int.Parse(value);
+
+            }
 
         }
 
@@ -201,9 +212,15 @@ namespace Bug_Tracker.Forms.Views
 
         private void program_table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String value = Program_table.Rows[e.RowIndex].Cells[0].Value.ToString();
-            program_id = int.Parse(value);
-
+            if (e.RowIndex == -1)
+            {
+                MessageBox.Show("You Cannot Select This Row");
+            }
+            else
+            {
+                String value = Program_table.Rows[e.RowIndex].Cells[0].Value.ToString();
+                program_id = int.Parse(value);
+            }
 
         }
 
@@ -379,8 +396,15 @@ namespace Bug_Tracker.Forms.Views
 
         private void error_table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String value = Error_table.Rows[e.RowIndex].Cells[0].Value.ToString();
-             bug_id = int.Parse(value);
+            if (e.RowIndex == -1)
+            {
+                MessageBox.Show("You Cannot Select This Row");
+            }
+            else
+            {
+                String value = Error_table.Rows[e.RowIndex].Cells[0].Value.ToString();
+                bug_id = int.Parse(value);
+            }
           
         }
 
@@ -429,35 +453,42 @@ namespace Bug_Tracker.Forms.Views
 
         private void tbl_data_error_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            BugDAO bg = new BugDAO();
-            String value = Tbl_data_error.Rows[e.RowIndex].Cells[0].Value.ToString();
-           Tbl_data_error_id = int.Parse(value);
-            DataTable dr = bg.GetAllBugs(Tbl_data_error_id);
-            if (dr.Rows.Count>0)
+            if (e.RowIndex == -1)
             {
-               
-                txt_program_name.Text="Program:  "+ dr.Rows[0][1].ToString();
-                txt_class_name.Text= "Class:  "+dr.Rows[0][2].ToString();
-                txt_method_name.Text = "Method:  "+dr.Rows[0][3].ToString();
-                txt_symptom1.Text= "Symptoms:  "+dr.Rows[0][6].ToString();
-                txt_cause1.Text = "Cause:  "+dr.Rows[0][7].ToString();
-                txt_date1.Text = " Date:  " + dr.Rows[0][5].ToString();
-                txt_description1.Text= "Image name:  " + dr.Rows[0][9].ToString();
-                txt_found_by.Text = "Found by: " + dr.Rows[0][12].ToString();
-                linkLabel1.Text=  dr.Rows[0][10].ToString();
-                txt_source1.Text = dr.Rows[0][11].ToString();
-
-                byte[] imgData = (byte[])dr.Rows[0][8];
-                MemoryStream ms = new MemoryStream();
-                ms.Write(imgData, 0, imgData.Length);
-                Bitmap bmp = new Bitmap(ms, false);
-                pic_desc.Image = bmp;
-                ms.Dispose();
-
+                MessageBox.Show("You Cannot Select This Row");
             }
             else
             {
-                MessageBox.Show("No data found");
+                BugDAO bg = new BugDAO();
+                String value = Tbl_data_error.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Tbl_data_error_id = int.Parse(value);
+                DataTable dr = bg.GetAllBugs(Tbl_data_error_id);
+                if (dr.Rows.Count > 0)
+                {
+
+                    txt_program_name.Text = "Program:  " + dr.Rows[0][1].ToString();
+                    txt_class_name.Text = "Class:  " + dr.Rows[0][2].ToString();
+                    txt_method_name.Text = "Method:  " + dr.Rows[0][3].ToString();
+                    txt_symptom1.Text = "Symptoms:  " + dr.Rows[0][6].ToString();
+                    txt_cause1.Text = "Cause:  " + dr.Rows[0][7].ToString();
+                    txt_date1.Text = " Date:  " + dr.Rows[0][5].ToString();
+                    txt_description1.Text = "Image name:  " + dr.Rows[0][9].ToString();
+                    txt_found_by.Text = "Found by: " + dr.Rows[0][12].ToString();
+                    linkLabel1.Text = dr.Rows[0][10].ToString();
+                    txt_source1.Text = dr.Rows[0][11].ToString();
+
+                    byte[] imgData = (byte[])dr.Rows[0][8];
+                    MemoryStream ms = new MemoryStream();
+                    ms.Write(imgData, 0, imgData.Length);
+                    Bitmap bmp = new Bitmap(ms, false);
+                    pic_desc.Image = bmp;
+                    ms.Dispose();
+
+                }
+                else
+                {
+                    MessageBox.Show("No data found");
+                }
             }
 
 
@@ -496,6 +527,10 @@ namespace Bug_Tracker.Forms.Views
             String pass1 = Txt_pass1.Text;
             String pass2 = Txt_pass2.Text;
             String post = cmb_post.Text;
+
+          
+
+
 
             if (post == "Admin")
             {
@@ -565,8 +600,9 @@ namespace Bug_Tracker.Forms.Views
                 if (done != 0)
                 {
                     MessageBox.Show("user registered");
-                    this.Hide();
-                    new Login().Show();
+                    ClearUserFields();
+                    
+                   
                 }
                 else
                 {
@@ -578,6 +614,17 @@ namespace Bug_Tracker.Forms.Views
 
 
             }
+
+        public void ClearUserFields()
+        {
+            Txt_fname.Text = "";
+            txt_lname.Text = "";
+            Txt_Con.Text = "";
+            Txt_add.Text = "";
+            Txt_user.Text = "";
+            Txt_pass1.Text = "";
+            Txt_pass2.Text = "";
+        }
 
             private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -601,34 +648,48 @@ namespace Bug_Tracker.Forms.Views
 
         private void tbl_bug_view_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-             String value = BugView.Rows[e.RowIndex].Cells[0].Value.ToString();
-             bug_id = int.Parse(value);
+            if (e.RowIndex== -1)
+            {
+                MessageBox.Show("You Cannot Select This Row");
+            }
+            else
+            {
+             
+                String value = BugView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                bug_id = int.Parse(value);
 
-            BugDAO us = new BugDAO();
-            DataTable data = us.GetBugs(bug_id);
-            BindingSource bsource = new BindingSource();
-            bsource.DataSource = data;
-            Tbl_data_history.DataSource = bsource;
-
+                BugDAO us = new BugDAO();
+                DataTable data = us.GetBugs(bug_id);
+                BindingSource bsource = new BindingSource();
+                bsource.DataSource = data;
+                Tbl_data_history.DataSource = bsource;
+            }
+            
           
         }
 
         private void tbl_data_history_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String value = Tbl_data_history.Rows[e.RowIndex].Cells[0].Value.ToString();
-           int  bug_id1 = int.Parse(value);
-            
-            
-            BugHistory bg = new BugHistory()
+            if (e.RowIndex == -1)
             {
-               id=bug_id1
-              
-            };
+                MessageBox.Show("You Cannot Select This Row");
+            }
+            else
+            {
+                String value = Tbl_data_history.Rows[e.RowIndex].Cells[0].Value.ToString();
+                int bug_id1 = int.Parse(value);
 
-            BugHistoryDAO bug =new BugHistoryDAO();
-            String code = bug.GetCodeBlock(bg);
-            MessageBox.Show("Code  " + code);
-            fast1.Text = code; 
+
+                BugHistory bg = new BugHistory()
+                {
+                    id = bug_id1
+
+                };
+
+                BugHistoryDAO bug = new BugHistoryDAO();
+                String code = bug.GetCodeBlock(bg);
+                fast1.Text = code;
+            }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -638,8 +699,15 @@ namespace Bug_Tracker.Forms.Views
 
         private void Program_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String id = Program_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
-            program_id = int.Parse(id);
+            if (e.RowIndex == -1)
+            {
+                MessageBox.Show("You Cannot Select This Row");
+            }
+            else
+            {
+                String id = Program_grid.Rows[e.RowIndex].Cells[0].Value.ToString();
+                program_id = int.Parse(id);
+            }
         }
 
         private void btn_load_program_Click(object sender, EventArgs e)
@@ -692,6 +760,22 @@ namespace Bug_Tracker.Forms.Views
         {
             PasswordUpdate pu = new PasswordUpdate(id);
             pu.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string url;
+            if (e.Link.LinkData != null)
+                url = e.Link.LinkData.ToString();
+            else
+                url = linkLabel1.Text.Substring(e.Link.Start, e.Link.Length);
+
+            if (!url.Contains("://"))
+                url = "http://" + url;
+
+            var si = new ProcessStartInfo(url);
+            Process.Start(si);
+            linkLabel1.LinkVisited = true;
         }
     }
 }

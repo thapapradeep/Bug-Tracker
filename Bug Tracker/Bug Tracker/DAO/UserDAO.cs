@@ -30,6 +30,12 @@ namespace Bug_Tracker.Forms.DAO
             throw new NotImplementedException();
         }
 
+
+        /// <summary>
+        /// Selexts user according to username and passworf for user login
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
          public OracleDataReader UserLogin(UserTable user)
         {
             OracleDataReader data=null;
@@ -54,6 +60,11 @@ namespace Bug_Tracker.Forms.DAO
             return data;
         }
 
+        /// <summary>
+        /// Inserts the user information into user table
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public int Insert(UserTable t)
         {
             int done = 0;
@@ -80,21 +91,39 @@ namespace Bug_Tracker.Forms.DAO
            
         }
 
+        /// <summary>
+        /// Updates the current password and returns int
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+
         public int Update(UserTable t)
         {
             int done = 0;
-            conn.Open();
-            
-            OracleCommand command = conn.CreateCommand();
-            command.CommandText = "update ASE.user_table set password = "+ t.password+" where user_id = "+t.user_id+"";
-            command.Parameters.Add(":id", t.user_id);
-            command.Parameters.Add(":password", t.password);
-            done = command.ExecuteNonQuery();
+            try
+            {
+                conn.Open();
+
+                OracleCommand command = conn.CreateCommand();
+                command.CommandText = "update ASE.user_table set password = " + t.password + " where user_id = " + t.user_id + "";
+                command.Parameters.Add(":id", t.user_id);
+                command.Parameters.Add(":password", t.password);
+                done = command.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+
+            }
             return done;
 
             
             
         }
+
+        /// <summary>
+        /// Gets user information and returns Oracle Data Adapter
+        /// </summary>
+        /// <returns></returns>
         public OracleDataAdapter GetUsers() 
         {
             

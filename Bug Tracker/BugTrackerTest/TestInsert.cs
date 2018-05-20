@@ -20,13 +20,13 @@ namespace BugTrackerTest
             int expected = 1;
             Bug_Tracker.Forms.Model.UserTable us = new Bug_Tracker.Forms.Model.UserTable()
              {
-                 fname = "Parker",
-                 lname = "Peter",
+                 fname = "Savnjeev",
+                 lname = "Thapa",
                  contact = "4583456",
-                 address = "ktm",
-                 username = "spider",
+                 address = "Banepa",
+                 username = "iron",
                  password = "man",
-                 type_id = 2
+                 type_id = 1
 
 
              };
@@ -39,13 +39,13 @@ namespace BugTrackerTest
         [TestMethod]
         public void InsertBug()
         {
-            int expected = 9;
+            int expected = 11;
             Bug_Tracker.Forms.Model.Bug us = new Bug_Tracker.Forms.Model.Bug()
             {
-                program = 4,
+                program = 5,
                 method_name = "main",
                 class_name = "Error",
-                line_number = 10,
+                line_number = 20,
                found_by=6,
                
                 
@@ -63,7 +63,7 @@ namespace BugTrackerTest
             int expected = 1;
             Bug_Tracker.Forms.Model.UserTable us = new Bug_Tracker.Forms.Model.UserTable()
             {
-                password = "moon",
+                password = "pass",
                 user_id = 7
 
 
@@ -80,7 +80,7 @@ namespace BugTrackerTest
             int expected = 1;
             Bug_Tracker.Forms.Model.Programs us = new Bug_Tracker.Forms.Model.Programs()
             {
-                program_name = "Current",
+                program_name = "Bug Track",
                 language="cSharp"
 
 

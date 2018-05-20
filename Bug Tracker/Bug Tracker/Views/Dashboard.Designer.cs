@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txt_desc1 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@
             this.btn_signout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button10 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
@@ -60,6 +62,7 @@
             this.Tbl_grid2 = new System.Windows.Forms.DataGridView();
             this.Tbl_grid = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
@@ -136,9 +139,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.Program_grid = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.lbl_programmer = new System.Windows.Forms.Label();
+            this.lbl_tester = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Error_table)).BeginInit();
@@ -210,6 +212,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Admin Panel";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(681, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(97, 23);
+            this.button9.TabIndex = 21;
+            this.button9.Text = "Update Password";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // label18
             // 
@@ -401,6 +413,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.lbl_programmer);
             this.tabPage6.Controls.Add(this.button10);
             this.tabPage6.Controls.Add(this.button8);
             this.tabPage6.Controls.Add(this.button7);
@@ -415,6 +428,16 @@
             this.tabPage6.TabIndex = 6;
             this.tabPage6.Text = "Programmer Panel";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(880, 38);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 17;
+            this.button10.Text = "Change Password";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button8
             // 
@@ -448,7 +471,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(375, 22);
+            this.label30.Location = new System.Drawing.Point(371, 67);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(172, 13);
             this.label30.TabIndex = 2;
@@ -468,13 +491,14 @@
             // 
             this.Tbl_grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Tbl_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Tbl_grid.Location = new System.Drawing.Point(161, 38);
+            this.Tbl_grid.Location = new System.Drawing.Point(162, 83);
             this.Tbl_grid.Name = "Tbl_grid";
             this.Tbl_grid.Size = new System.Drawing.Size(606, 208);
             this.Tbl_grid.TabIndex = 0;
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.lbl_tester);
             this.tabPage4.Controls.Add(this.button11);
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.button5);
@@ -489,6 +513,16 @@
             this.tabPage4.TabIndex = 5;
             this.tabPage4.Text = "Tester Panel";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(880, 48);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.TabIndex = 17;
+            this.button11.Text = "Change Password";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button6
             // 
@@ -522,7 +556,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(380, 9);
+            this.label34.Location = new System.Drawing.Point(382, 93);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(172, 13);
             this.label34.TabIndex = 6;
@@ -541,7 +575,7 @@
             // 
             this.Tester_bug.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Tester_bug.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Tester_bug.Location = new System.Drawing.Point(166, 25);
+            this.Tester_bug.Location = new System.Drawing.Point(177, 109);
             this.Tester_bug.Name = "Tester_bug";
             this.Tester_bug.Size = new System.Drawing.Size(606, 208);
             this.Tester_bug.TabIndex = 4;
@@ -618,6 +652,7 @@
             this.linkLabel1.TabIndex = 54;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Source Link";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // txt_description1
             // 
@@ -649,7 +684,7 @@
         '\"',
         '\'',
         '\''};
-            this.txt_source1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.txt_source1.AutoScrollMinSize = new System.Drawing.Size(2, 14);
             this.txt_source1.BackBrush = null;
             this.txt_source1.CharHeight = 14;
             this.txt_source1.CharWidth = 8;
@@ -989,7 +1024,7 @@
         '\"',
         '\'',
         '\''};
-            this.fast1.AutoScrollMinSize = new System.Drawing.Size(2, 14);
+            this.fast1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
             this.fast1.BackBrush = null;
             this.fast1.CharHeight = 14;
             this.fast1.CharWidth = 8;
@@ -1301,35 +1336,25 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Register Error  Here";
             // 
-            // button9
+            // lbl_programmer
             // 
-            this.button9.Location = new System.Drawing.Point(681, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(97, 23);
-            this.button9.TabIndex = 21;
-            this.button9.Text = "Update Password";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.lbl_programmer.AutoSize = true;
+            this.lbl_programmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_programmer.Location = new System.Drawing.Point(217, 3);
+            this.lbl_programmer.Name = "lbl_programmer";
+            this.lbl_programmer.Size = new System.Drawing.Size(384, 29);
+            this.lbl_programmer.TabIndex = 18;
+            this.lbl_programmer.Text = "List of Bugs That I am Assigned To";
             // 
-            // button10
+            // lbl_tester
             // 
-            this.button10.Location = new System.Drawing.Point(880, 38);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 17;
-            this.button10.Text = "Change Password";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(880, 48);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 17;
-            this.button11.Text = "Change Password";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.lbl_tester.AutoSize = true;
+            this.lbl_tester.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tester.Location = new System.Drawing.Point(262, 4);
+            this.lbl_tester.Name = "lbl_tester";
+            this.lbl_tester.Size = new System.Drawing.Size(384, 29);
+            this.lbl_tester.TabIndex = 19;
+            this.lbl_tester.Text = "List of Bugs That I am Assigned To";
             // 
             // Dashboard
             // 
@@ -1485,5 +1510,7 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label lbl_programmer;
+        private System.Windows.Forms.Label lbl_tester;
     }
 }
